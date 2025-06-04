@@ -6,7 +6,7 @@ package EDD;
 
 /**
  *
- * @author User
+ * @author Luis
  */
 public class lista {
     
