@@ -9,6 +9,31 @@ package EDD;
  * @author Luis
  */
 public class Nodo {
+    private String value;
+    private Nodo pNext;
+
+    public Nodo(String value) {
+        this.value = value;
+        this.pNext = null;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+ 
+    public Nodo getpNext() {
+        return pNext;
+    }
+
+    public void setpNext(Nodo pNext) {
+        this.pNext = pNext;
+    }
+    
+    
     
     
 }
