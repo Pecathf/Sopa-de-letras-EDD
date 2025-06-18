@@ -6,7 +6,7 @@ package interfaces;
 
 /**
  *
- * @author User
+ * @author Luis
  */
 public class Bienvenido extends javax.swing.JFrame {
 

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Angel
+ * @author Luis
  */
 public class Prueba {
     public String abrirArchivo() {

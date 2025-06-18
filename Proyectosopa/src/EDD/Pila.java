@@ -5,7 +5,7 @@
 package EDD;
 
 /**
- * Implementación propia de una Pila (Stack) usando lista enlazada.No usa ninguna librería de Java Collections.
+ * Implementación propia de una Pila usando lista enlazada.
  * 
  * @author Luis
  * @param <T>
@@ -91,7 +91,7 @@ public class Pila<T> {
      * 
      * @return Número de elementos en la pila
      */
-    public int tamaño() {
+    public int size() {
         return size;
     }
     

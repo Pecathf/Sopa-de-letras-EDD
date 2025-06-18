@@ -5,7 +5,7 @@
 package EDD;
 
 /**
- * Implementación propia de una Cola (Queue) usando lista enlazada.No usa ninguna librería de Java Collections.
+ * Implementación propia de una Cola (Queue) usando lista enlazada.
  * 
  * @author luis
  * @param <T>
@@ -103,7 +103,7 @@ public class Cola<T> {
      * 
      * @return Número de elementos en la cola
      */
-    public int tamaño() {
+    public int size() {
         return size;
     }
     

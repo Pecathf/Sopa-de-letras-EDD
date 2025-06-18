@@ -5,7 +5,7 @@
 package EDD;
 
 /**
- * Implementación propia de una Lista Enlazada Simple.No usa ninguna librería de Java Collections.
+ * Implementación propia de una Lista Enlazada Simple.
  * 
  * @author Luis
  * @param <T>

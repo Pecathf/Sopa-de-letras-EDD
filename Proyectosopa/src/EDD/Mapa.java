@@ -7,8 +7,7 @@ package EDD;
 /**
  * Implementación propia de un Mapa (Diccionario) usando Hash Table.No usa ninguna librería de Java Collections.
  * 
- * @author Equipo de Desarrollo
- * @version 1.0
+ * @author Luis
  * @param <K>
  * @param <V>
  */
