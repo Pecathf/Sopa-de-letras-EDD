@@ -7,8 +7,7 @@ package EDD;
 /**
  * Implementación propia de una Lista Enlazada Simple.No usa ninguna librería de Java Collections.
  * 
- * @author Equipo de Desarrollo
- * @version 1.0
+ * @author Luis
  * @param <T>
  */
 public class Lista<T> {
