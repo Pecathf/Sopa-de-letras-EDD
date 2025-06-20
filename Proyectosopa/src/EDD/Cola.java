@@ -106,33 +106,33 @@ public class Cola<T> {
     public int size() {
         return size;
     }
+        /**
+//     * Limpia todos los elementos de la cola.
+//     */
+//    public void limpiar() {
+//        frente = null;
+//        ultimo = null;
+//        size = 0;
+//    }
+//
     
-    /**
-     * Limpia todos los elementos de la cola.
-     */
-    public void limpiar() {
-        frente = null;
-        ultimo = null;
-        size = 0;
-    }
-    
-    @Override
-    public String toString() {
-        if (frente == null) {
-            return "Cola[]";
-        }
-        
-        StringBuilder sb = new StringBuilder();
-        sb.append("Cola[");
-        Nodo<T> actual = frente;
-        while (actual != null) {
-            sb.append(actual.dato);
-            if (actual.siguiente != null) {
-                sb.append(", ");
-            }
-            actual = actual.siguiente;
-        }
-        sb.append("]");
-        return sb.toString();
-    }
+//    @Override
+//    public String toString() {
+//        if (frente == null) {
+//            return "Cola[]";
+//        }
+//        
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("Cola[");
+//        Nodo<T> actual = frente;
+//        while (actual != null) {
+//            sb.append(actual.dato);
+//            if (actual.siguiente != null) {
+//                sb.append(", ");
+//            }
+//            actual = actual.siguiente;
+//        }
+//        sb.append("]");
+//        return sb.toString();
+//    }
 }
