@@ -15,9 +15,10 @@ public class Arbol {
     
     /**
      * 
+     * @param length
      * @param dato constructor del &aaccuterbol binario
      */
-    public Arbol (String dato){
+    public Arbol (int length, String dato){
         NodoArbol nuevo = new NodoArbol(dato);
         this.raiz= nuevo;
         this.cant= 1;    

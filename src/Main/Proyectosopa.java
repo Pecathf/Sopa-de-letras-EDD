@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Main;
-import interfaces.Principal;
+import interfaces.Bienvenido;
 //import Selectorarchivo.FC;
 //import EDD.Arbol;
 //import EDD.Lista;
@@ -17,7 +17,7 @@ public class Proyectosopa {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Principal P= new Principal();
+        Bienvenido P= new Bienvenido();
        P.setVisible (true);
 //       FC lector = new FC();
 //       String texto= lector.abrirArchivo();
