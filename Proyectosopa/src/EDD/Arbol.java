@@ -6,7 +6,7 @@ package EDD;
 
 /**
  *
- * @author Luis
+ * @author Jabrieliz
  */
 public class Arbol {
     public NodoArbol raiz;
