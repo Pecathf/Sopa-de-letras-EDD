@@ -4,17 +4,26 @@
  */
 package interfaces;
 
-/**
- *
+import javax.swing.JOptionPane;
+
+/**La clase {@code BuscarPalabraEsp} representa la ventana de búsqueda de
+ * palabras en la sopa de letras utilizando el algoritmo de amplitud, pero solo
+ * para palabras en español.
  * @author Angel
  */
 public class BuscarPalabraEsp extends javax.swing.JFrame {
+    /**
+     * La instancia de la ventana de carga de archivos.
+     */
     public static Cargar v1;
 
-    /**
-     * Creates new form BuscarPalabraEsp
+     /**
+     * Crea una nueva instancia de la clase {@code BuscarPalabra}. Inicializa
+     * los componentes y configura la ventana.
+     *
+     * @param v1 la instancia de la ventana de carga
      */
-    public BuscarPalabraEsp() {
+    public BuscarPalabraEsp(Cargar v1) {
         initComponents();
         this.v1 = v1;
         v1.setVisible(false);
@@ -31,22 +40,114 @@ public class BuscarPalabraEsp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        textoPalabra = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        botonBuscar = new javax.swing.JButton();
+        botonAtras = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textoPalabra.setBackground(new java.awt.Color(51, 51, 51));
+        textoPalabra.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        textoPalabra.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(textoPalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 130, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Palabra a buscar");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Metodo de busqueda BFS");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Buscar Palabra en Especifico");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        botonBuscar.setBackground(new java.awt.Color(51, 51, 51));
+        botonBuscar.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
+        botonBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, 30));
+
+        botonAtras.setBackground(new java.awt.Color(51, 51, 51));
+        botonAtras.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        botonAtras.setForeground(new java.awt.Color(255, 255, 255));
+        botonAtras.setText("Atras");
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtrasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Gri.png"))); // NOI18N
+        jLabel1.setToolTipText("Buscar Palabra en Especifico");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 250));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        // TODO add your handling code here:
+        String palabra = this.textoPalabra.getText().toUpperCase();
+        if (palabra.length() > 2) {
+            if (v1.arbol.ancho(palabra)) {
+                JOptionPane.showMessageDialog(rootPane, "PALABRA ENCONTRADA");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "PALABRA NO ENCONTRADA");
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "LA PALABRA DEBE TENER AL MENOS 3 LETRAS");
+
+        }
+    }//GEN-LAST:event_botonBuscarActionPerformed
+
+    /**
+     * Acción realizada al presionar el botón "Atras". Oculta la ventana actual
+     * y muestra la ventana principal del menú.
+     *
+     * @param evt el evento de acción
+     */
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+
+        Bienvenido b = new Bienvenido();
+
+        Menu menu = new Menu(v1);
+
+        menu.setVisible(true);
+    }//GEN-LAST:event_botonAtrasActionPerformed
+
+               
     /**
      * @param args the command line arguments
      */
@@ -78,11 +179,19 @@ public class BuscarPalabraEsp extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarPalabraEsp().setVisible(true);
+                new BuscarPalabraEsp(v1).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAtras;
+    private javax.swing.JButton botonBuscar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField textoPalabra;
     // End of variables declaration//GEN-END:variables
 }

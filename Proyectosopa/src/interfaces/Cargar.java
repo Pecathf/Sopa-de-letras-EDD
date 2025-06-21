@@ -29,9 +29,9 @@ public class Cargar extends javax.swing.JFrame {
     public Arbol arbol;
 
     /**
-     * La instancia de la ventana principal.
+     * La instancia de la ventana men&uaccute.
      */
-    public static Bienvenido v1;
+    public static Menu v1;
 
     /**
      * Crea una nueva instancia de la clase {@code Cargar}. Inicializa los
@@ -201,11 +201,13 @@ try (FileReader fr = new FileReader(fichero);
 
     private void CarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarActionPerformed
         if (cargarArchivo != null) {
+            
 
             this.setVisible(false);
             Bienvenido b = new Bienvenido();
-            Menu menu = new Menu();
+            Menu menu = new Menu(this);
             menu.setVisible(true);
+            
         }
     }//GEN-LAST:event_CarActionPerformed
 
