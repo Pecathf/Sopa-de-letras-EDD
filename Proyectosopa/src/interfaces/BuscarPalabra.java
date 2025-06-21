@@ -4,12 +4,11 @@
  */
 package interfaces;
 import javax.swing.JOptionPane;
-import EDD.Grafo;
 import EDD.Arbol;
 /**
  ** La clase {@code BuscarPalabra} representa la ventana de búsqueda de palabras
  * en la sopa de letras utilizando el algoritmo de profundidad o amplitud.
- * @author Angel
+ * @author Jabrieliz
  */
 public class BuscarPalabra extends javax.swing.JFrame {
     /**
@@ -30,6 +29,7 @@ public class BuscarPalabra extends javax.swing.JFrame {
         v1.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        mostrarDiccionario();
     }
 
     /**
@@ -61,7 +61,7 @@ public class BuscarPalabra extends javax.swing.JFrame {
         palabras.setRows(5);
         jScrollPane1.setViewportView(palabras);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 190, 70));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 240, 100));
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
@@ -106,7 +106,7 @@ public class BuscarPalabra extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Palabras encontradas");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Gri.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
@@ -196,6 +196,24 @@ public class BuscarPalabra extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+ * Método para mostrar todas las palabras del diccionario
+ */
+private void mostrarDiccionario() {
+    if (v1.diccionario != null ) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("DICCIONARIO CARGADO:\n");
+        sb.append("Total de palabras: ").append("\n\n");
+        
+        for (String palabra : v1.diccionario) {
+            sb.append(palabra).append("\n");
+        }
+        
+        this.palabras.setText(sb.toString());
+    } else {
+        this.palabras.setText("No hay diccionario cargado");
+    }
+}
     
     
    

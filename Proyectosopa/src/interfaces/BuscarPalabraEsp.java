@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 /**La clase {@code BuscarPalabraEsp} representa la ventana de búsqueda de
  * palabras en la sopa de letras utilizando el algoritmo de amplitud, pero solo
  * para palabras en español.
- * @author Angel
+ * @author simon
  */
 public class BuscarPalabraEsp extends javax.swing.JFrame {
     /**

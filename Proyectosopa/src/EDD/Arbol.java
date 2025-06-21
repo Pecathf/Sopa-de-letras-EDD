@@ -116,73 +116,97 @@ public class Arbol {
         
     }
 }
-    
-    public boolean profundo (String dato, Lista lista){
-        if (raiz == null) {
+    /**
+     * Búsqueda en profundidad (DFS) sin lista
+     * @param dato elemento a buscar
+     * @return true si encuentra el elemento, false en caso contrario
+     */
+    public boolean profundo(String dato) {
+        if (raiz == null || dato == null) {
             return false;
         }
+        
         Pila pila = new Pila();
         pila.apilar(raiz);
 
         while (!pila.estaVacia()) {
             NodoArbol actual = (NodoArbol) pila.desapilar();
-            System.out.print(actual.dato + " ");
-            lista.agregar(actual);
 
             if (actual.dato.equals(dato)) {
                 return true;
             }
 
-            // Importante: Apilar primero el hijo derecho y luego el izquierdo
-            // para que el izquierdo se procese primero (orden preorden)
+            // Apilar primero el hijo derecho y luego el izquierdo
             if (actual.hder != null) {
                 pila.apilar(actual.hder);
             }
             if (actual.hizq != null) {
                 pila.apilar(actual.hizq);
             }
-    }
-    return false;  
-    }
-
-   
-    public boolean ancho (String dato, Lista lista){
-        if (raiz == null){
-            return false;
-        }
-
-        Cola cola = new Cola<>();
-        cola.encolar(raiz);
-
-        while (!cola.estaVacia()) {
-            NodoArbol actual =(NodoArbol) cola.desencolar();
-            System.out.print(actual.dato + " ");
-            lista.agregar(actual);
-            
-            if (actual.dato.equals(dato)){
-                return true;
-                
-            }
-            if (actual.hizq != null){
-                cola.encolar(actual.hizq);
-            }
-            if (actual.hder != null){
-                cola.encolar(actual.hder);    
-            }
-                
         }
         return false;
     }
 
-    public boolean ancho(String word) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    /**
+     * Búsqueda en amplitud (BFS) con lista de nodos visitados
+     * @param dato elemento a buscar
+     * @param lista lista donde se almacenan los nodos visitados
+     * @return true si encuentra el elemento, false en caso contrario
+     */
+    public boolean ancho(String dato, Lista lista) {
+        if (raiz == null || dato == null) {
+            return false;
+        }
+
+        Cola cola = new Cola();
+        cola.encolar(raiz);
+
+        while (!cola.estaVacia()) {
+            NodoArbol actual = (NodoArbol) cola.desencolar();
+            System.out.print(actual.dato + " ");
+            lista.agregar(actual);
+
+            if (actual.dato.equals(dato)) {
+                return true;
+            }
+            
+            if (actual.hizq != null) {
+                cola.encolar(actual.hizq);
+            }
+            if (actual.hder != null) {
+                cola.encolar(actual.hder);
+            }
+        }
+        return false;
     }
 
-    public boolean profundo(String word) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    /**
+     * Búsqueda en amplitud (BFS) sin lista
+     * @param dato elemento a buscar
+     * @return true si encuentra el elemento, false en caso contrario
+     */
+    public boolean ancho(String dato) {
+        if (raiz == null || dato == null) {
+            return false;
+        }
+
+        Cola cola = new Cola();
+        cola.encolar(raiz);
+
+        while (!cola.estaVacia()) {
+            NodoArbol actual = (NodoArbol) cola.desencolar();
+
+            if (actual.dato.equals(dato)) {
+                return true;
+            }
+            
+            if (actual.hizq != null) {
+                cola.encolar(actual.hizq);
+            }
+            if (actual.hder != null) {
+                cola.encolar(actual.hder);
+            }
+        }
+        return false;
     }
-
-    
-
-    
 }
