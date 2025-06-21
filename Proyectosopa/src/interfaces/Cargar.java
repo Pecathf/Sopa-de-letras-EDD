@@ -29,7 +29,7 @@ public class Cargar extends javax.swing.JFrame {
     public Arbol arbol;
 
     /**
-     * La instancia de la ventana principal.
+     * La instancia de la ventana men&uaccute.
      */
     public static Menu v1;
 
@@ -205,7 +205,7 @@ try (FileReader fr = new FileReader(fichero);
 
             this.setVisible(false);
             Bienvenido b = new Bienvenido();
-            Menu menu = new Menu();
+            Menu menu = new Menu(this);
             menu.setVisible(true);
             
         }

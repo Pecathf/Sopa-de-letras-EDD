@@ -4,12 +4,17 @@
  */
 package interfaces;
 
+import javax.swing.JOptionPane;
+
 /**La clase {@code BuscarPalabraEsp} representa la ventana de búsqueda de
  * palabras en la sopa de letras utilizando el algoritmo de amplitud, pero solo
  * para palabras en español.
  * @author Angel
  */
 public class BuscarPalabraEsp extends javax.swing.JFrame {
+    /**
+     * La instancia de la ventana de carga de archivos.
+     */
     public static Cargar v1;
 
      /**
@@ -72,12 +77,22 @@ public class BuscarPalabraEsp extends javax.swing.JFrame {
         botonBuscar.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
         botonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
         jPanel1.add(botonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, 30));
 
         botonAtras.setBackground(new java.awt.Color(51, 51, 51));
         botonAtras.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         botonAtras.setForeground(new java.awt.Color(255, 255, 255));
         botonAtras.setText("Atras");
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtrasActionPerformed(evt);
+            }
+        });
         jPanel1.add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
@@ -99,13 +114,30 @@ public class BuscarPalabraEsp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        // TODO add your handling code here:
+        String palabra = this.textoPalabra.getText().toUpperCase();
+        if (palabra.length() > 2) {
+            if (v1.arbol.ancho(palabra)) {
+                JOptionPane.showMessageDialog(rootPane, "PALABRA ENCONTRADA");
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "PALABRA NO ENCONTRADA");
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "LA PALABRA DEBE TENER AL MENOS 3 LETRAS");
+
+        }
+    }//GEN-LAST:event_botonBuscarActionPerformed
+
     /**
      * Acción realizada al presionar el botón "Atras". Oculta la ventana actual
      * y muestra la ventana principal del menú.
      *
      * @param evt el evento de acción
      */
-    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        // TODO add your handling code here:
         this.setVisible(false);
 
         Bienvenido b = new Bienvenido();
@@ -113,7 +145,9 @@ public class BuscarPalabraEsp extends javax.swing.JFrame {
         Menu menu = new Menu(v1);
 
         menu.setVisible(true);
-    }                 
+    }//GEN-LAST:event_botonAtrasActionPerformed
+
+               
     /**
      * @param args the command line arguments
      */
@@ -145,7 +179,7 @@ public class BuscarPalabraEsp extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarPalabraEsp().setVisible(true);
+                new BuscarPalabraEsp(v1).setVisible(true);
             }
         });
     }

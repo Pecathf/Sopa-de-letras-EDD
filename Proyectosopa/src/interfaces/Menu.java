@@ -14,10 +14,13 @@ public class Menu extends javax.swing.JFrame {
     public static Cargar v1;
 
 
-    /**
-     * Creates new form Menu
+     /**
+     * Crea una nueva instancia de la clase {@code Menu}. Inicializa los
+     * componentes y configura la ventana.
+     *
+     * @param v1 la instancia de la ventana de carga
      */
-    public Menu() {
+    public Menu(Cargar v1) {
         initComponents();
         this.v1 = v1;
         this.arbol = v1.arbol;
@@ -67,12 +70,22 @@ public class Menu extends javax.swing.JFrame {
         botonBuscar.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         botonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
         jPanel1.add(botonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         botonBuscarEsp.setBackground(new java.awt.Color(51, 51, 51));
         botonBuscarEsp.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         botonBuscarEsp.setForeground(new java.awt.Color(255, 255, 255));
         botonBuscarEsp.setText("Buscar");
+        botonBuscarEsp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarEspActionPerformed(evt);
+            }
+        });
         jPanel1.add(botonBuscarEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/Gri.png"))); // NOI18N
@@ -93,59 +106,37 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Acción realizada al presionar el botón "Buscar Palabra". Oculta la
-     * ventana actual y muestra la ventana de búsqueda de palabras.
-     *
-     * @param evt el evento de acción
-     */
-    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        this.setVisible(false);
-
-        BuscarPalabra buscar = new BuscarPalabra(v1);
-
-        buscar.setVisible(true);
-    }                                           
-    /**
      * Acción realizada al presionar el botón "Buscar Palabra en específico".
      * Oculta la ventana actual y muestra la ventana de búsqueda de palabras en
      * específico.
      *
      * @param evt el evento de acción
-     */
-    private void botonBuscarEspActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    */
+    private void botonBuscarEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarEspActionPerformed
+        // TODO add your handling code here:
         this.setVisible(false);
 
-        BuscarPalabraEsp buscarEsp = new BuscarPalabraEsp(v1);
+        BuscarPalabra buscar = new BuscarPalabra(v1);
 
-        buscarEsp.setVisible(true);
-    }                          
-     /**
+        buscar.setVisible(true);
+    }//GEN-LAST:event_botonBuscarEspActionPerformed
+
+    /**
      * Acción realizada al presionar el botón "Buscar Palabra". Oculta la
      * ventana actual y muestra la ventana de búsqueda de palabras.
      *
      * @param evt el evento de acción
      */
-//    private void BuscarEActionPerformed(java.awt.event.ActionEvent evt) {                                            
-//        this.setVisible(false);
-//
-//        BuscarE buscar = new BuscarE(v1);
-//
-//        buscar.setVisible(true);
-//    }                                           
-//    /**
-//     * Acción realizada al presionar el botón "Buscar Palabra en específico".
-//     * Oculta la ventana actual y muestra la ventana de búsqueda de palabras en
-//     * específico.
-//     *
-//     * @param evt el evento de acción
-//     */
-//    private void BuscarPEspActionPerformed(java.awt.event.ActionEvent evt) {                                               
-//        this.setVisible(false);
-//
-//        BuscarPEsp buscarEsp = new BuscarPEsp(v1);
-//
-//        buscarEsp.setVisible(true);
-//    }                                              
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+
+       BuscarPalabraEsp buscarEsp = new BuscarPalabraEsp(v1);
+
+       buscarEsp.setVisible(true);
+    }//GEN-LAST:event_botonBuscarActionPerformed
+
+                                             
     /**
      * @param args the command line arguments
      */
@@ -176,7 +167,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Menu(v1).setVisible(true);
             }
         });
     }

@@ -11,6 +11,8 @@ package EDD;
 public class Arbol {
     public NodoArbol raiz;
     public int cant;
+    public NodoArbol [] vertice;
+    
 
     
     /**
@@ -114,11 +116,36 @@ public class Arbol {
         
     }
 }
-//    public boolean profundo (String dato){
-//        
-//        
-//        
-//    }
+    
+    public boolean profundo (String dato, Lista lista){
+        if (raiz == null) {
+            return false;
+        }
+        Pila pila = new Pila();
+        pila.apilar(raiz);
+
+        while (!pila.estaVacia()) {
+            NodoArbol actual = (NodoArbol) pila.desapilar();
+            System.out.print(actual.dato + " ");
+            lista.agregar(actual);
+
+            if (actual.dato.equals(dato)) {
+                return true;
+            }
+
+            // Importante: Apilar primero el hijo derecho y luego el izquierdo
+            // para que el izquierdo se procese primero (orden preorden)
+            if (actual.hder != null) {
+                pila.apilar(actual.hder);
+            }
+            if (actual.hizq != null) {
+                pila.apilar(actual.hizq);
+            }
+    }
+    return false;  
+    }
+
+   
     public boolean ancho (String dato, Lista lista){
         if (raiz == null){
             return false;
@@ -131,6 +158,7 @@ public class Arbol {
             NodoArbol actual =(NodoArbol) cola.desencolar();
             System.out.print(actual.dato + " ");
             lista.agregar(actual);
+            
             if (actual.dato.equals(dato)){
                 return true;
                 
@@ -145,4 +173,16 @@ public class Arbol {
         }
         return false;
     }
+
+    public boolean ancho(String word) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean profundo(String word) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
+
+    
 }
