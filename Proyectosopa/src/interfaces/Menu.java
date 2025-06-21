@@ -6,7 +6,7 @@ package interfaces;
 import EDD.Arbol;
 /**
  *
- * @author Angel
+ * @author Jabrieliz
  */
 public class Menu extends javax.swing.JFrame {
      public Arbol arbol;

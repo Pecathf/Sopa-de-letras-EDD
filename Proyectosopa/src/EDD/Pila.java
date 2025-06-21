@@ -8,7 +8,7 @@ package EDD;
  * Implementación propia de una Pila usando lista enlazada.
  *
  *
- * @author Angel
+ * @author Luis
  * @param <T>
  */
 public class Pila<T> {

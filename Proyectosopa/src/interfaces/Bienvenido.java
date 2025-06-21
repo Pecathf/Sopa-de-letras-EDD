@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Angel
+ * @author Jabrieliz
  */
 public class Bienvenido extends javax.swing.JFrame {
 
